@@ -14,6 +14,11 @@
       background-color: #050505;
       color: #e0e0e0;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-text-size-adjust: 100%;
+      /* Fix for some Android devices rendering black screen */
+      transform: translateZ(0);
     }
 
     .font-mono {
@@ -60,7 +65,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 50;
+      z-index: 20;
     }
 
     .glow-text {
