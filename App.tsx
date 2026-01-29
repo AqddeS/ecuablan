@@ -148,7 +148,7 @@ const App: React.FC = () => {
       {/* Main Content */}
       <main className="pt-24 px-4 md:px-8 max-w-7xl mx-auto pb-12">
         {activeTab === Tab.DASHBOARD && (
-          <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="space-y-12 animate-in fade-in duration-700">
             {/* Hero Section */}
             <div className="relative text-center py-12 overflow-hidden border-b border-green-900/30">
               {/* Background Image Layer */}
