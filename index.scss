@@ -57,4 +57,20 @@ body {
   color: #e0e0e0;
   /* Prevent font scaling issues */
   -webkit-text-size-adjust: 100%;
+  /* iOS smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent flickering on iOS */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Fix for iOS Safari rendering issues */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  /* Extra safety for iOS overscroll */
+  background: #050505 !important;
 }
