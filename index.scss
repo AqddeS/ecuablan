@@ -31,3 +31,30 @@
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
 }
+
+/* Rendering Safety for Mobile/Android */
+@media (max-width: 768px) {
+  * {
+    /* Disable backdrop-filter on mobile as it's buggy on many Android devices (Honor/Huawei) */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .perspective-1000 {
+    /* Reduce complexity on mobile */
+    perspective: none;
+  }
+
+  .preserve-3d {
+    /* Flatten 3D context on mobile to prevent Z-fighting and black screens */
+    transform-style: flat;
+  }
+}
+
+body {
+  background-color: #050505 !important;
+  /* Ensure background is solid black */
+  color: #e0e0e0;
+  /* Prevent font scaling issues */
+  -webkit-text-size-adjust: 100%;
+}
