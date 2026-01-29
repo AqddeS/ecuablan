@@ -85,7 +85,7 @@ const DefenseCard: React.FC<DefenseCardProps> = ({ module }) => {
         <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
         <img
-          src="/white-card.png"
+          src={`${import.meta.env.BASE_URL}white-card.png`}
           alt="Secure Card"
           className="absolute bottom-4 right-4 w-16 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]"
         />

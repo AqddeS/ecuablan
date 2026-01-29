@@ -156,7 +156,7 @@ const App: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-black via-black/20 to-black z-10"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-green-900/10 via-transparent to-transparent z-10"></div>
                 <img
-                  src="/hacker-gorilla.jpg"
+                  src={`${import.meta.env.BASE_URL}hacker-gorilla.jpg`}
                   alt="Background"
                   className="w-full h-full object-cover object-top opacity-60 scale-105"
                 />

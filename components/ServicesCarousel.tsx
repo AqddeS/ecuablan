@@ -7,7 +7,7 @@ interface ServicesCarouselProps {
 }
 
 const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ services }) => {
-    const [rotation, setRotation] = useState(0);
+    // Removed JS rotation state for smoother CSS animation
     const [radius, setRadius] = useState(300);
     const [cardSize, setCardSize] = useState({ w: 300, h: 400 });
 
@@ -30,22 +30,16 @@ const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ services }) => {
 
         window.addEventListener('resize', handleResize);
 
-        const interval = setInterval(() => {
-            setRotation(prev => prev - 1); // Rotate automatically
-        }, 50);
-
         return () => {
             window.removeEventListener('resize', handleResize);
-            clearInterval(interval);
         }
     }, []);
 
     return (
         <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden perspective-1000">
             <div
-                className="relative preserve-3d transition-transform duration-100 ease-linear"
+                className="relative preserve-3d animate-spin-slow"
                 style={{
-                    transform: `rotateY(${rotation}deg)`,
                     width: `${cardSize.w}px`,
                     height: `${cardSize.h}px`
                 }}
