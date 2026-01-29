@@ -165,18 +165,18 @@ const App: React.FC = () => {
               <div className="relative z-10">
                 <GlitchHeader text="ECUABLAN CAS" subtext="Fisicas y Virtuales" />
                 <div className="mt-8 max-w-3xl mx-auto bg-black/60 backdrop-blur-sm p-6 rounded-sm border border-green-900/30 text-gray-300 text-lg text-left space-y-3 font-mono shadow-2xl shadow-green-900/20">
-                  <p><TypingEffect text="> Uso nacional e internacional" speed={30} repeatDelay={5000} /></p>
-                  <p><TypingEffect text="> Entrega al instante" speed={30} delay={1000} repeatDelay={5000} /></p>
+                  <p><TypingEffect text="> Uso nacional e internacional" speed={30} /></p>
+                  <p><TypingEffect text="> Entrega al instante" speed={30} delay={1000} /></p>
                   <div className="pl-4 text-sm text-green-400/80 border-l border-green-500/30 my-2">
-                    <p><TypingEffect text="— Formato digital con datos completos para que hagas compras en línea de inmediato." speed={20} delay={2000} repeatDelay={5000} /></p>
-                    <p><TypingEffect text="— Envío físico a todo el Ecuador (Servientrega)" speed={20} delay={4000} repeatDelay={5000} /></p>
+                    <p><TypingEffect text="— Formato digital con datos completos para que hagas compras en línea de inmediato." speed={20} delay={2000} /></p>
+                    <p><TypingEffect text="— Envío físico a todo el Ecuador (Servientrega)" speed={20} delay={4000} /></p>
                   </div>
-                  <p className="font-bold text-green-400 mt-4"><TypingEffect text="Beneficios:" speed={50} delay={5500} repeatDelay={5000} /></p>
+                  <p className="font-bold text-green-400 mt-4"><TypingEffect text="Beneficios:" speed={50} delay={5500} /></p>
                   <ul className="list-none space-y-1 pl-4 border-l-2 border-green-500">
-                    <li><TypingEffect text="[+] Retiro en cajeros" speed={20} delay={6000} repeatDelay={5000} /></li>
-                    <li><TypingEffect text="[+] Compras online y en tiendas" speed={20} delay={7000} repeatDelay={5000} /></li>
-                    <li><TypingEffect text="[+] Recargas y pedidos por apps" speed={20} delay={8000} repeatDelay={5000} /></li>
-                    <li className="text-white font-bold bg-green-900/30 pr-2 inline-block"><TypingEffect text="[+] Saldos según tu elección INCLUYE ASESORÍA HASTA TU PRIMERA COMPRA" speed={20} delay={9000} repeatDelay={5000} /></li>
+                    <li><TypingEffect text="[+] Retiro en cajeros" speed={20} delay={6000} /></li>
+                    <li><TypingEffect text="[+] Compras online y en tiendas" speed={20} delay={7000} /></li>
+                    <li><TypingEffect text="[+] Recargas y pedidos por apps" speed={20} delay={8000} /></li>
+                    <li className="text-white font-bold bg-green-900/30 pr-2 inline-block"><TypingEffect text="[+] Saldos según tu elección INCLUYE ASESORÍA HASTA TU PRIMERA COMPRA" speed={20} delay={9000} /></li>
                   </ul>
                 </div>
               </div>
@@ -193,9 +193,9 @@ const App: React.FC = () => {
                 <div key={idx} className="bg-black/40 border border-green-900/30 p-6 rounded-sm backdrop-blur-sm hover:border-green-500/50 transition-colors group">
                   <div className="flex justify-between items-start">
                     <div>
-                      <p className="text-xs font-mono text-gray-500 uppercase tracking-widest"><TypingEffect text={stat.label} speed={50} repeatDelay={5000} /></p>
+                      <p className="text-xs font-mono text-gray-500 uppercase tracking-widest"><TypingEffect text={stat.label} speed={50} /></p>
                       <h4 className={`text-2xl font-bold mt-2 font-mono ${stat.color} group-hover:glow-text`}>
-                        <TypingEffect text={stat.val} speed={100} delay={500} repeatDelay={5000} />
+                        <TypingEffect text={stat.val} speed={100} delay={500} />
                       </h4>
                     </div>
                     <stat.icon className={`w-6 h-6 ${stat.color} opacity-50 group-hover:opacity-100 transition-opacity`} />
