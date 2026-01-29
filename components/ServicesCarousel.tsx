@@ -7,12 +7,12 @@ interface ServicesCarouselProps {
 }
 
 const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ services }) => {
-    // Removed JS rotation state for smoother CSS animation
+    const [rotation, setRotation] = useState(0);
     const [radius, setRadius] = useState(300);
     const [cardSize, setCardSize] = useState({ w: 300, h: 400 });
 
-    const containerRef = useRef<HTMLDivElement>(null);
     const totalItems = services.length;
+    const angleStep = 360 / totalItems;
 
     useEffect(() => {
         const handleResize = () => {
@@ -25,21 +25,50 @@ const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ services }) => {
             }
         };
 
-        // Initial check
         handleResize();
-
         window.addEventListener('resize', handleResize);
+
+        // Auto-rotation can still happen, but slowly
+        const interval = setInterval(() => {
+            setRotation(prev => prev - 0.2);
+        }, 50);
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            clearInterval(interval);
         }
     }, []);
 
+    const handleNext = () => {
+        setRotation(prev => prev - angleStep);
+    };
+
+    const handlePrev = () => {
+        setRotation(prev => prev + angleStep);
+    };
+
     return (
-        <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden perspective-1000">
+        <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden perspective-1000 select-none">
+            {/* Navigation Buttons */}
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 z-50 pointer-events-none">
+                <button
+                    onClick={handlePrev}
+                    className="w-12 h-12 flex items-center justify-center bg-black/50 border border-green-500/30 text-green-500 rounded-full backdrop-blur-md pointer-events-auto hover:bg-green-500 hover:text-black transition-all active:scale-95 shadow-[0_0_15px_rgba(0,255,65,0.2)]"
+                >
+                    <span className="text-2xl font-bold">&lt;</span>
+                </button>
+                <button
+                    onClick={handleNext}
+                    className="w-12 h-12 flex items-center justify-center bg-black/50 border border-green-500/30 text-green-500 rounded-full backdrop-blur-md pointer-events-auto hover:bg-green-500 hover:text-black transition-all active:scale-95 shadow-[0_0_15px_rgba(0,255,65,0.2)]"
+                >
+                    <span className="text-2xl font-bold">&gt;</span>
+                </button>
+            </div>
+
             <div
-                className="relative preserve-3d animate-spin-slow"
+                className="relative preserve-3d transition-transform duration-500 ease-out"
                 style={{
+                    transform: `rotateY(${rotation}deg)`,
                     width: `${cardSize.w}px`,
                     height: `${cardSize.h}px`
                 }}
