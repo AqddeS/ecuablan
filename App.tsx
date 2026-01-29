@@ -164,7 +164,7 @@ const App: React.FC = () => {
 
               <div className="relative z-10">
                 <GlitchHeader text="ECUABLAN CAS" subtext="Fisicas y Virtuales" />
-                <div className="mt-8 max-w-3xl mx-auto bg-black/60 backdrop-blur-sm p-6 rounded-sm border border-green-900/30 text-gray-300 text-lg text-left space-y-3 font-mono shadow-2xl shadow-green-900/20">
+                <div className="mt-8 max-w-3xl mx-auto bg-black/60 backdrop-blur-sm p-6 rounded-sm border border-green-900/30 text-gray-300 text-lg text-left space-y-3 font-mono shadow-2xl shadow-green-900/20 min-h-[600px] md:min-h-[450px]">
                   <p><TypingEffect text="> Uso nacional e internacional" speed={30} /></p>
                   <p><TypingEffect text="> Entrega al instante" speed={30} delay={1000} /></p>
                   <div className="pl-4 text-sm text-green-400/80 border-l border-green-500/30 my-2">
