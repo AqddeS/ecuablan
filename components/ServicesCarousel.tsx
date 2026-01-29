@@ -7,12 +7,14 @@ interface ServicesCarouselProps {
 }
 
 const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ services }) => {
-    const [rotation, setRotation] = useState(0);
+    const [currIndex, setCurrIndex] = useState(0);
     const [radius, setRadius] = useState(300);
     const [cardSize, setCardSize] = useState({ w: 300, h: 400 });
 
     const totalItems = services.length;
-    const angleStep = 360 / totalItems;
+
+    // Calculate rotation based on index to ensure "snap" to center
+    const rotation = -(currIndex * (360 / totalItems));
 
     useEffect(() => {
         const handleResize = () => {
@@ -28,23 +30,17 @@ const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ services }) => {
         handleResize();
         window.addEventListener('resize', handleResize);
 
-        // Auto-rotation can still happen, but slowly
-        const interval = setInterval(() => {
-            setRotation(prev => prev - 0.2);
-        }, 50);
-
         return () => {
             window.removeEventListener('resize', handleResize);
-            clearInterval(interval);
         }
     }, []);
 
     const handleNext = () => {
-        setRotation(prev => prev - angleStep);
+        setCurrIndex(prev => prev + 1);
     };
 
     const handlePrev = () => {
-        setRotation(prev => prev + angleStep);
+        setCurrIndex(prev => prev - 1);
     };
 
     return (
