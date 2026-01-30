@@ -7,6 +7,7 @@ import TypingEffect from './components/TypingEffect';
 import ServicesCarousel from './components/ServicesCarousel';
 import TestimonialLog from './components/TestimonialLog';
 import SuccessChart from './components/SuccessChart';
+import Courses from './components/Courses';
 
 const defenseModules: SecurityModule[] = [
   {
@@ -57,6 +58,7 @@ const TAB_TRANSLATIONS: Record<Tab, string> = {
   [Tab.DASHBOARD]: 'INICIO',
   [Tab.HOW_IT_WORKS]: 'CÓMO FUNCIONA',
   [Tab.SERVICES]: 'SERVICIOS',
+  [Tab.COURSES]: 'CURSOS',
   [Tab.FAQ]: 'FAQ'
 };
 
@@ -164,6 +166,42 @@ const App: React.FC = () => {
 
               <div className="relative z-10">
                 <GlitchHeader text="ECUABLAN CAS" subtext="Fisicas y Virtuales" />
+
+                {/* 1. Giant Telegram Button */}
+                <a
+                  href="https://t.me/system_ecu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full max-w-4xl mx-auto my-8 bg-gradient-to-r from-green-600 to-green-900 border-2 border-green-400 p-6 rounded-lg text-white text-center shadow-[0_0_30px_rgba(34,197,94,0.4)] hover:scale-105 transform transition-all duration-300 group z-50 relative"
+                >
+                  <div className="flex items-center justify-center space-x-4 animate-pulse">
+                    <MessageCircle className="w-12 h-12 text-white" />
+                    <div className="text-left">
+                      <h3 className="text-2xl md:text-4xl font-black font-mono tracking-tighter uppercase leading-none">
+                        ÚNETE A TELEGRAM AHORA
+                      </h3>
+                      <p className="text-green-200 font-mono text-lg tracking-widest">INFO PRIVADA & SOPORTE 24/7</p>
+                    </div>
+                  </div>
+                </a>
+
+                {/* 2. Visible Disclaimer */}
+                <div className="max-w-4xl mx-auto mb-10 bg-red-950/40 border-l-4 border-r-4 border-red-600 p-6 backdrop-blur-md relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(220,38,38,0.1)_10px,rgba(220,38,38,0.1)_20px)] pointer-events-none"></div>
+                  <div className="relative z-10 flex flex-col items-center text-center">
+                    <div className="flex items-center space-x-3 mb-2 text-red-500 animate-bounce">
+                      <AlertTriangle className="w-8 h-8" />
+                      <span className="font-bold font-mono text-2xl uppercase tracking-widest">ADVERTENCIA</span>
+                      <AlertTriangle className="w-8 h-8" />
+                    </div>
+                    <p className="text-red-200 font-mono text-lg md:text-xl font-bold">
+                      Operamos en zona gris. No somos banco. No hay garantías eternas.
+                    </p>
+                    <p className="text-red-400 font-mono text-sm mt-2 uppercase tracking-wide">
+                      Uso bajo tu responsabilidad. Solo para mayores de edad.
+                    </p>
+                  </div>
+                </div>
                 <div className="mt-8 max-w-3xl mx-auto bg-black/60 backdrop-blur-sm p-6 rounded-sm border border-green-900/30 text-gray-300 text-lg text-left space-y-3 font-mono shadow-2xl shadow-green-900/20 min-h-[600px] md:min-h-[450px]">
                   <p><TypingEffect text="> Uso nacional e internacional" speed={30} /></p>
                   <p><TypingEffect text="> Entrega al instante" speed={30} delay={1000} /></p>
@@ -398,7 +436,7 @@ const App: React.FC = () => {
           </div>
         )}
 
-
+        {activeTab === Tab.COURSES && <Courses />}
 
         {activeTab === Tab.FAQ && (
           <div className="animate-in fade-in duration-500 max-w-4xl mx-auto space-y-12">

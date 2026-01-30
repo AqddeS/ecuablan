@@ -12,9 +12,20 @@ export interface SecurityModule {
   category: 'Defense' | 'Analysis' | 'Encryption';
 }
 
+export interface Course {
+  id: string;
+  title: string;
+  description: string;
+  duration: string;
+  level: 'Beginner' | 'Intermediate' | 'Advanced';
+  price: string;
+  features: string[];
+}
+
 export enum Tab {
   DASHBOARD = 'DASHBOARD',
   HOW_IT_WORKS = 'HOW_IT_WORKS',
   SERVICES = 'SERVICES',
+  COURSES = 'COURSES',
   FAQ = 'FAQ'
 }
