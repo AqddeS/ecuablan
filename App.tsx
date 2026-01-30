@@ -169,7 +169,7 @@ const App: React.FC = () => {
 
                 {/* 1. Giant Telegram Button */}
                 <a
-                  href="https://t.me/system_ecu"
+                  href="https://t.me/system_ec"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full max-w-4xl mx-auto my-8 bg-gradient-to-r from-green-600 to-green-900 border-2 border-green-400 p-6 rounded-lg text-white text-center shadow-[0_0_30px_rgba(34,197,94,0.4)] hover:scale-105 transform transition-all duration-300 group z-50 relative"
